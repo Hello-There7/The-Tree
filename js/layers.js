@@ -6,7 +6,7 @@ addLayer("k", {
         unlocked: true,
 		points: new Decimal(0),
     }},
-    color: "#111111",
+    color: "#222222",
     requires: new Decimal(10), // Can be a function that takes requirement increases into account
     resource: "Black", // Name of prestige currency
     baseResource: "Darkness", // Name of resource prestige is based on
@@ -31,7 +31,7 @@ addLayer("k", {
             description: "Boost your point gain.",
             cost: new Decimal(1),
             effect() {
-                return player[this.layer].points.add(1).pow(0.125)
+                return player[this.layer].points.add(1).pow(0.5)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         },
