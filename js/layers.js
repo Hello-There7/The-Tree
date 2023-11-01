@@ -6,7 +6,7 @@ addLayer("k", {
         unlocked: true,
 		points: new Decimal(0),
     }},
-    color: "#222222",
+    color: "#000000",
     requires: new Decimal(10), // Can be a function that takes requirement increases into account
     resource: "Black", // Name of prestige currency
     baseResource: "Darkness", // Name of resource prestige is based on
