@@ -6,7 +6,7 @@ addLayer("k", {
         unlocked: true,
 		points: new Decimal(0),
     }},
-    color: "#000000",
+    color: "#464646",
     requires: new Decimal(10), // Can be a function that takes requirement increases into account
     resource: "Black", // Name of prestige currency
     baseResource: "Darkness", // Name of resource prestige is based on
@@ -28,7 +28,7 @@ addLayer("k", {
     upgrades: {
         11: {
             title: "Abyss",
-            description: "Boost your point gain.",
+            description: "Double your point gain.",
             cost: new Decimal(1),
         },
     },
