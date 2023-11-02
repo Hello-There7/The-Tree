@@ -15,6 +15,8 @@ addLayer("k", {
     exponent: 0.5, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
+        if (hasUpgrade('k', 14)) mult = mult.times(upgradeEffect('k', 14))
+        if (hasUpgrade('k', 15)) mult = mult.times(upgradeEffect('k', 15))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -37,6 +39,33 @@ addLayer("k", {
             cost: new Decimal(2),
             effect() {
                 return player.points.add(1).pow(0.5)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+        },
+        13: {
+            title: "Black Hole",
+            description: "Boost your Darkness gain based on Black.",
+            cost: new Decimal(7),
+            effect() {
+                return player[this.layer].points.add(1).pow(0.5)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+        },
+        14: {
+            title: "Night Sky",
+            description: "Boost your Black gain based on Darkness.",
+            cost: new Decimal(25),
+            effect() {
+                return player.points.add(1).pow(0.5)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+        },
+        15: {
+            title: "Black Hole",
+            description: "Boost your Black gain based on Black.",
+            cost: new Decimal(87),
+            effect() {
+                return player[this.layer].points.add(1).pow(0.5)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         },
