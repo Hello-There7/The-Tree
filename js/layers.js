@@ -85,8 +85,8 @@ addLayer("r", {
     exponent: 0, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
-        if(hasMilestone(r, 0)) mult = mult.times(2)
         if(hasMilestone(r, 1)) mult = mult.times(2)
+        if(hasMilestone(r, 2)) mult = mult.times(2)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -95,12 +95,12 @@ addLayer("r", {
     row: 1, // Row the layer is in on the tree (0 is the first row)
     layerShown(){return true},
     milestones: {
-        0: {
+        1: {
             requirementDescription: "#FF0000",
             effectDescription: "",
             done() { return player.r.points.gte(1) },
         },
-        1: {
+        2: {
             requirementDescription: "Fire Essence",
             effectDescription: "",
             done() { return player.r.points.gte(5) },
