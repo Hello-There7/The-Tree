@@ -61,7 +61,7 @@ addLayer("k", {
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         },
         15: {
-            title: "Black Hole",
+            title: "Photonic Dissaray",
             description: "Boost your Black gain based on Black.",
             cost: new Decimal(87),
             effect() {
