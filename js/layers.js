@@ -38,7 +38,7 @@ addLayer("k", {
             description: "Boost your Darkness gain based on Darkness.",
             cost: new Decimal(2),
             effect() {
-                return player.points.add(1).pow(0.5)
+                return player.points.add(1).pow(0.25)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         },
@@ -56,7 +56,7 @@ addLayer("k", {
             description: "Boost your Black gain based on Darkness.",
             cost: new Decimal(25),
             effect() {
-                return player.points.add(1).pow(0.5)
+                return player.points.add(1).pow(0.25)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         },
