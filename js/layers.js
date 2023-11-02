@@ -28,8 +28,17 @@ addLayer("k", {
     upgrades: {
         11: {
             title: "Abyss",
-            description: "Double your point gain.",
+            description: "Double your Darkness gain.",
             cost: new Decimal(1),
+        },
+        12: {
+            title: "Vanta-Black",
+            description: "Boost your Darkness gain based on Darkness.",
+            cost: new Decimal(2),
+            effect() {
+                return player.points.add(1).pow(0.5)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         },
     },
 })
