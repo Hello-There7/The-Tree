@@ -15,6 +15,7 @@ addLayer("i", {
     exponent: 0.9, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
+        if (hasUpgrade('i', 12)) mult = mult.times(upgradeEffect('i', 12))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -31,6 +32,15 @@ addLayer("i", {
                 return player.points.add(1).pow(0.5)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
-        }
+        },
+        12: {
+            title: "That Wasn't So Long",
+            description: "boost your IP gain based on IP.",
+            cost: new Decimal(25),
+            effect() {
+                return player[this.layer].points.add(1).pow(0.5)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+        },
     },
 })
