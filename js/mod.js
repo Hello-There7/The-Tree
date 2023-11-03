@@ -2,12 +2,12 @@ let modInfo = {
 	name: "The Colo(u)r Tree",
 	id: "mymod",
 	author: "Wyatt",
-	pointsName: "Darkness",
+	pointsName: "Points",
 	modFiles: ["layers.js", "tree.js"],
 
 	discordName: "",
 	discordLink: "",
-	initialStartPoints: new Decimal (10), // Used for hard resets and new players
+	initialStartPoints: new Decimal (268.25), // Used for hard resets and new players
 	offlineLimit: 1,  // In hours
 }
 
@@ -43,9 +43,7 @@ function getPointGen() {
 		return new Decimal(0)
 		
 	let gain = new Decimal(1)
-	if (hasUpgrade('k', 11)) gain = gain.times(2)
-	if (hasUpgrade('k', 12)) gain = gain.times(upgradeEffect('k', 12))
-	if (hasUpgrade('k', 13)) gain = gain.times(upgradeEffect('k', 13))
+	if (hasUpgrade('i', 11)) gain = gain.times(upgradeEffect('i', 11))
 	return gain
 }
 
