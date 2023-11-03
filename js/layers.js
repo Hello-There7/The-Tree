@@ -28,7 +28,7 @@ addLayer("i", {
             description: "boost your point gain based on points.",
             cost: new Decimal(1),
             effect() {
-                return player.points.add(1).pow(0.125)
+                return player.points.add(1).pow(0.5)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         }
