@@ -17,6 +17,8 @@ addLayer("i", {
         mult = new Decimal(1)
         if (hasUpgrade('i', 12)) mult = mult.times(upgradeEffect('i', 12))
         if (hasUpgrade('e', 12)) mult = mult.times(upgradeEffect('e', 12))
+        if (hasUpgrade('e', 22)) mult = mult.times(upgradeEffect('e', 22))
+        if (hasUpgrade('e', 32)) mult = mult.times(upgradeEffect('e', 32))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -62,6 +64,9 @@ addLayer("e", {
     exponent: 0.9, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
+        if (hasUpgrade('e', 13)) mult = mult.times(upgradeEffect('e', 13))
+        if (hasUpgrade('e', 23)) mult = mult.times(upgradeEffect('e', 23))
+        if (hasUpgrade('e', 33)) mult = mult.times(upgradeEffect('e', 33))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -85,6 +90,69 @@ addLayer("e", {
             cost: new Decimal(2),
             effect() {
                 return player.points.add(1).pow(0.5)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+        },
+        13: {
+            title: "P to T",
+            description: "boost your Time gain based on Points.",
+            cost: new Decimal(7),
+            effect() {
+                return player.points.add(1).pow(0.5)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+        },
+        21: {
+            title: "IP to P",
+            description: "boost your point gain based on IP.",
+            cost: new Decimal(1),
+            effect() {
+                return player.i.points.add(1).pow(0.5)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+        },
+        22: {
+            title: "IP to IP",
+            description: "boost your IP gain based on IP.",
+            cost: new Decimal(2),
+            effect() {
+                return player.i.points.add(1).pow(0.5)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+        },
+        23: {
+            title: "IP to T",
+            description: "boost your Time gain based on IP.",
+            cost: new Decimal(7),
+            effect() {
+                return player.i.points.add(1).pow(0.5)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+        },
+        31: {
+            title: "T to P",
+            description: "boost your point gain based on Time.",
+            cost: new Decimal(1),
+            effect() {
+                return player.e.points.add(1).pow(0.5)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+        },
+        32: {
+            title: "T to IP",
+            description: "boost your IP gain based on Time.",
+            cost: new Decimal(2),
+            effect() {
+                return player.e.points.add(1).pow(0.5)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+        },
+        33: {
+            title: "T to T",
+            description: "boost your Time gain based on Time.",
+            cost: new Decimal(7),
+            effect() {
+                return player.e.points.add(1).pow(0.5)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         },
