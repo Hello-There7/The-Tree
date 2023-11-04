@@ -105,7 +105,7 @@ addLayer("e", {
         21: {
             title: "IP to P",
             description: "boost your point gain based on IP.",
-            cost: new Decimal(1),
+            cost: new Decimal(2),
             effect() {
                 return player.i.points.add(1).pow(0.5)
             },
@@ -114,7 +114,7 @@ addLayer("e", {
         22: {
             title: "IP to IP",
             description: "boost your IP gain based on IP.",
-            cost: new Decimal(2),
+            cost: new Decimal(4),
             effect() {
                 return player.i.points.add(1).pow(0.5)
             },
@@ -123,7 +123,7 @@ addLayer("e", {
         23: {
             title: "IP to T",
             description: "boost your Time gain based on IP.",
-            cost: new Decimal(7),
+            cost: new Decimal(14),
             effect() {
                 return player.i.points.add(1).pow(0.5)
             },
@@ -132,7 +132,7 @@ addLayer("e", {
         31: {
             title: "T to P",
             description: "boost your point gain based on Time.",
-            cost: new Decimal(1),
+            cost: new Decimal(7),
             effect() {
                 return player.e.points.add(1).pow(0.5)
             },
@@ -141,7 +141,7 @@ addLayer("e", {
         32: {
             title: "T to IP",
             description: "boost your IP gain based on Time.",
-            cost: new Decimal(2),
+            cost: new Decimal(14),
             effect() {
                 return player.e.points.add(1).pow(0.5)
             },
@@ -150,7 +150,7 @@ addLayer("e", {
         33: {
             title: "T to T",
             description: "boost your Time gain based on Time.",
-            cost: new Decimal(7),
+            cost: new Decimal(49),
             effect() {
                 return player.e.points.add(1).pow(0.5)
             },
