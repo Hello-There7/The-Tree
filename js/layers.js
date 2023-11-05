@@ -204,7 +204,7 @@ addLayer("u", {
         13: {
             title: "⥋",
             description: "boost your point gain based on points.",
-            cost: new Decimal(1000),
+            cost: new Decimal(100),
             effect() {
                 return player.points.add(1).pow(player.points.add(1).pow(0.1))
             },
