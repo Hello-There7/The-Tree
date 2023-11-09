@@ -169,7 +169,7 @@ addLayer("e", {
 addLayer("u", {
     name: "u", // This is optional, only used in a few places, If absent it just uses the layer id.
     position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
-    symbol: "⇮", // This appears on the layer's node. Default is the id with the first letter capitalized
+    symbol: "◍", // This appears on the layer's node. Default is the id with the first letter capitalized
     startData() { return {
         unlocked: true,
 		points: new Decimal(0),
@@ -390,6 +390,132 @@ addLayer("r", {
             cost: new Decimal(81),
             effect() {
                 return player.r.points.add(1).pow(0.5)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+        },
+    },
+})
+addLayer("a", {
+    name: "a", // This is optional, only used in a few places, If absent it just uses the layer id.
+    position: 1, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
+    symbol: "⟁", // This appears on the layer's node. Default is the id with the first letter capitalized
+    startData() { return {
+        unlocked: true,
+		points: new Decimal(0),
+    }},
+    color: "#D5F5E3",
+    requires: new Decimal(103050709), // Can be a function that takes requirement increases into account
+    resource: "RM", // Name of prestige currency
+    baseResource: "Time", // Name of resource prestige is based on
+    baseAmount() {return player.e.points}, // Get the current amount of baseResource
+    type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
+    exponent: 0.9, // Prestige currency exponent
+    gainMult() { // Calculate the multiplier for main currency from bonuses
+        mult = new Decimal(1)
+        if (hasUpgrade('a', 11)) mult = mult.times(upgradeEffect('a', 11))
+        if (hasUpgrade('a', 12)) mult = mult.times(upgradeEffect('a', 12))
+        if (hasUpgrade('a', 13)) mult = mult.times(upgradeEffect('a', 13))
+        if (hasUpgrade('a', 14)) mult = mult.times(upgradeEffect('a', 14))
+        if (hasUpgrade('a', 21)) mult = mult.times(upgradeEffect('a', 21))
+        if (hasUpgrade('a', 22)) mult = mult.times(upgradeEffect('a', 22))
+        if (hasUpgrade('a', 23)) mult = mult.times(upgradeEffect('a', 23))
+        if (hasUpgrade('a', 31)) mult = mult.times(upgradeEffect('a', 31))
+        if (hasUpgrade('a', 13)) mult = mult.times(upgradeEffect('a', 13))
+        return mult
+    },
+    gainExp() { // Calculate the exponent on main currency from bonuses
+        return new Decimal(1)
+    },
+    row: 1, // Row the layer is in on the tree (0 is the first row)
+    layerShown(){return true},
+    upgrades: {
+        11: {
+            title: "1",
+            description: "",
+            cost: new Decimal(1),
+            effect() {
+                return player.points.add(1).pow(0.5)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+        },
+        12: {
+            title: "2",
+            description: "",
+            cost: new Decimal(3),
+            effect() {
+                return player.points.add(1).pow(2)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+        },
+        13: {
+            title: "3",
+            description: "",
+            cost: new Decimal(5),
+            effect() {
+                return player.points.add(1).pow(8)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+        },
+        14: {
+            title: "4",
+            description: "",
+            cost: new Decimal(9),
+            effect() {
+                return player.points.add(1).pow(32)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+        },
+        21: {
+            title: "5",
+            description: "",
+            cost: new Decimal(11),
+            effect() {
+                return player.points.add(1).pow(3)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+        },
+        22: {
+            title: "6",
+            description: "",
+            cost: new Decimal(13),
+            effect() {
+                return player.points.add(1).pow(9)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+        },
+        23: {
+            title: "7",
+            description: "",
+            cost: new Decimal(15),
+            effect() {
+                return player.points.add(1).pow(27)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+        },
+        31: {
+            title: "8",
+            description: "",
+            cost: new Decimal(17),
+            effect() {
+                return player.points.add(1).pow(25)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+        },
+        32: {
+            title: "9",
+            description: "",
+            cost: new Decimal(19),
+            effect() {
+                return player.points.add(1).pow(125)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+        },
+        41: {
+            title: "10",
+            description: "",
+            cost: new Decimal(21),
+            effect() {
+                return player.a.points.add(1)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         },
