@@ -8,7 +8,7 @@ addLayer("a", {
 		points: new Decimal(0),
     }},
     color: "#9B59B6",
-    requires: new Decimal(308.25), // Can be a function that takes requirement increases into account
+    requires: new Decimal(1), // Can be a function that takes requirement increases into account
     resource: "Antimatter", // Name of prestige currency
     baseResource: "Points", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
@@ -27,7 +27,7 @@ addLayer("a", {
     upgrades: {
         11: {
             description: "",
-            cost: new Decimal(100),
+            cost: new Decimal(10),
             title: ">"
         },
     },
