@@ -37,7 +37,7 @@ addLayer("a", {
             cost: new Decimal(25),
             title: "Journey"
         },
-        12: {
+        13: {
             description: "",
             cost: new Decimal(50),
             title: "Begins"
