@@ -7,16 +7,18 @@ addLayer("a", {
         unlocked: true,
 		points: new Decimal(0),
     }},
-    color: "#9B59B6",
+    color: "#ffffff",
     requires: new Decimal(1), // Can be a function that takes requirement increases into account
-    resource: "Antimatter", // Name of prestige currency
+    resource: "A", // Name of prestige currency
     baseResource: "Points", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
-    type: "static", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
-    exponent: 0.01, // Prestige currency exponent
+    type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
+    exponent: 1.23456789, // Prestige currency exponent
     resetDescription: "Forge points into ",
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
+        if (hasUpgrade('a', 13)) mult = mult.mul(5)
+        if (hasUpgrade('a', 12)) mult = mult.pow(1.5)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -28,7 +30,17 @@ addLayer("a", {
         11: {
             description: "",
             cost: new Decimal(10),
-            title: ">"
+            title: "A"
+        },
+        12: {
+            description: "",
+            cost: new Decimal(25),
+            title: "Journey"
+        },
+        12: {
+            description: "",
+            cost: new Decimal(50),
+            title: "Begins"
         },
     },
 })
