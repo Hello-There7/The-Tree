@@ -48,7 +48,7 @@ addLayer("b", {
     position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     symbol: "B", // This appears on the layer's node. Default is the id with the first letter capitalized
     startData() { return {
-        unlocked: true,
+        unlocked: false,
 		points: new Decimal(0),
     }},
     color: "#ff0000",
@@ -70,7 +70,7 @@ addLayer("b", {
         return new Decimal(1)
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
-    layerShown(){return true},
+    layerShown(){return (hasUpgrade('a', 13))},
     upgrades: {
         11: {
             description: "",
@@ -109,7 +109,7 @@ addLayer("c", {
     position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     symbol: "C", // This appears on the layer's node. Default is the id with the first letter capitalized
     startData() { return {
-        unlocked: true,
+        unlocked: false,
 		points: new Decimal(0),
     }},
     effect() {
@@ -133,7 +133,7 @@ addLayer("c", {
         return new Decimal(1)
     },
     row: 2, // Row the layer is in on the tree (0 is the first row)
-    layerShown(){return true},
+    layerShown(){return (hasUpgrade('b', 31))},
     upgrades: {
         11: {
             description: "",
