@@ -70,7 +70,7 @@ addLayer("b", {
         return new Decimal(1)
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
-    layerShown(){return (hasUpgrade('a', 13))},
+    layerShown(){return true},
     upgrades: {
         11: {
             description: "",
@@ -133,7 +133,7 @@ addLayer("c", {
         return new Decimal(1)
     },
     row: 2, // Row the layer is in on the tree (0 is the first row)
-    layerShown(){return (hasUpgrade('b', 31))},
+    layerShown(){return true},
     upgrades: {
         11: {
             description: "",
