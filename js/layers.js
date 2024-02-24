@@ -6,7 +6,7 @@ addLayer("a", {
         unlocked: true,
 		points: new Decimal(0),
     }},
-    color: "#ffffff",
+    color: "#555555",
     requires: new Decimal(1), // Can be a function that takes requirement increases into account
     resource: "A", // Name of prestige currency
     baseResource: "Points", // Name of resource prestige is based on
@@ -51,7 +51,7 @@ addLayer("b", {
         unlocked: true,
 		points: new Decimal(0),
     }},
-    color: "#eeeeee",
+    color: "#ff0000",
     requires: new Decimal(100), // Can be a function that takes requirement increases into account
     resource: "B", // Name of prestige currency
     baseResource: "A", // Name of resource prestige is based on
@@ -85,7 +85,7 @@ addLayer("b", {
         13: {
             description: "",
             cost: new Decimal(50),
-            title: "Square"
+            title: "Line"
         },
         21: {
             description: "",
@@ -101,6 +101,70 @@ addLayer("b", {
             description: "",
             cost: new Decimal(500),
             title: "Layer 2 End"
+        },
+    },
+})
+addLayer("c", {
+    name: "c", // This is optional, only used in a few places, If absent it just uses the layer id.
+    position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
+    symbol: "C", // This appears on the layer's node. Default is the id with the first letter capitalized
+    startData() { return {
+        unlocked: true,
+		points: new Decimal(0),
+    }},
+    color: "#00ff00",
+    requires: new Decimal(2187), // Can be a function that takes requirement increases into account
+    resource: "C", // Name of prestige currency
+    baseResource: "B", // Name of resource prestige is based on
+    baseAmount() {return player.b.points}, // Get the current amount of baseResource
+    type: "static", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
+    exponent: 1.47, // Prestige currency exponent
+    resetDescription: "Forge points into ",
+    gainMult() { // Calculate the multiplier for main currency from bonuses
+        mult = new Decimal(1)
+        if (hasUpgrade('c', 11)) mult = mult.times(3)
+        if (hasUpgrade('c', 21)) mult = mult.times(3)
+        if (hasUpgrade('c', 22)) mult = mult.times(3)
+        if (hasUpgrade('c', 31)) mult = mult.times(3)
+        if (hasUpgrade('c', 32)) mult = mult.times(3)
+        if (hasUpgrade('c', 33)) mult = mult.times(3)
+        return mult
+    },
+    gainExp() { // Calculate the exponent on main currency from bonuses
+        return new Decimal(1)
+    },
+    row: 2, // Row the layer is in on the tree (0 is the first row)
+    layerShown(){return true},
+    upgrades: {
+        11: {
+            description: "",
+            cost: new Decimal(1),
+            title: "Layer 3"
+        },
+        21: {
+            description: "",
+            cost: new Decimal(4),
+            title: "Triangle"
+        },
+        22: {
+            description: "",
+            cost: new Decimal(16),
+            title: "3/4"
+        },
+        31: {
+            description: "",
+            cost: new Decimal(64),
+            title: "Tresillos"
+        },
+        32: {
+            description: "",
+            cost: new Decimal(256),
+            title: "Triple"
+        },
+        33: {
+            description: "",
+            cost: new Decimal(1024),
+            title: "Layer 3 End"
         },
     },
 })
