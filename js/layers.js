@@ -48,7 +48,7 @@ addLayer("b", {
     position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     symbol: "B", // This appears on the layer's node. Default is the id with the first letter capitalized
     startData() { return {
-        unlocked: false,
+        unlocked: true,
 		points: new Decimal(0),
     }},
     color: "#ff0000",
@@ -109,7 +109,7 @@ addLayer("c", {
     position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     symbol: "C", // This appears on the layer's node. Default is the id with the first letter capitalized
     startData() { return {
-        unlocked: false,
+        unlocked: true,
 		points: new Decimal(0),
     }},
     effect() {
