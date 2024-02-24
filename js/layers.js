@@ -127,12 +127,6 @@ addLayer("c", {
     resetDescription: "Forge points into ",
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
-        if (hasUpgrade('c', 11)) mult = mult.times(3)
-        if (hasUpgrade('c', 21)) mult = mult.times(3)
-        if (hasUpgrade('c', 22)) mult = mult.times(3)
-        if (hasUpgrade('c', 31)) mult = mult.times(3)
-        if (hasUpgrade('c', 32)) mult = mult.times(3)
-        if (hasUpgrade('c', 33)) mult = mult.times(3)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses

@@ -47,6 +47,12 @@ function getPointGen() {
 	if (hasUpgrade('b', 11)) gain = gain.times(player.points.add(1).pow(player.a.points.add(1).pow(0.25)))
 	if (hasUpgrade('b', 21)) gain = gain.times(player.points.add(1).pow(player.a.points.add(1).pow(player.b.points.add(1).pow(0.25))))
 	if (hasUpgrade('b', 22)) gain = gain.pow(1.5)
+	if (hasUpgrade('c', 11)) gain = gain.times(3)
+    if (hasUpgrade('c', 21)) gain = gain.times(3)
+    if (hasUpgrade('c', 22)) gain = gain.times(3)
+    if (hasUpgrade('c', 31)) gain = gain.times(3)
+    if (hasUpgrade('c', 32)) gain = gain.times(3)
+    if (hasUpgrade('c', 33)) gain = gain.times(3)
 	return gain
 }
 
