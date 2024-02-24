@@ -25,6 +25,13 @@ addLayer("a", {
     },
     row: 0, // Row the layer is in on the tree (0 is the first row)
     layerShown(){return true},
+    milestones: {
+        0: {
+            requirementDescription: "100 A",
+            effectDescription: "Unlock another layer",
+            done() { return player.a.points.gte(100) }
+        }
+    },
     upgrades: {
         11: {
             description: "",
@@ -48,7 +55,7 @@ addLayer("b", {
     position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     symbol: "B", // This appears on the layer's node. Default is the id with the first letter capitalized
     startData() { return {
-        unlocked: true,
+        unlocked: false,
 		points: new Decimal(0),
     }},
     color: "#ff0000",
@@ -70,7 +77,19 @@ addLayer("b", {
         return new Decimal(1)
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
-    layerShown(){return true},
+    layerShown(){return (hasMilestone(a, 0)||hasMilestone(b, 0))},
+    milestones: {
+        0: {
+            requirementDescription: "1 B",
+            effectDescription: "Layer 2, Start!",
+            done() { return player.b.points.gte(1) }
+        },
+        1: {
+            requirementDescription: "2187 B",
+            effectDescription: "Unlock yet another layer",
+            done() { return player.b.points.gte(2187) }
+        }
+    },
     upgrades: {
         11: {
             description: "",
@@ -133,7 +152,19 @@ addLayer("c", {
         return new Decimal(1)
     },
     row: 2, // Row the layer is in on the tree (0 is the first row)
-    layerShown(){return true},
+    layerShown(){return (hasMilestone(b, 1)||hasMilestone(c, 0))},
+    milestones: {
+        0: {
+            requirementDescription: "1 C",
+            effectDescription: "Third time's the charm!",
+            done() { return player.c.points.gte(1) }
+        },
+        1: {
+            requirementDescription: "2187 B",
+            effectDescription: "You get the drill",
+            done() { return player.c.points.gte(2048) }
+        }
+    },
     upgrades: {
         11: {
             description: "",
