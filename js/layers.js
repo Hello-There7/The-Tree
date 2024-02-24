@@ -112,6 +112,11 @@ addLayer("c", {
         unlocked: true,
 		points: new Decimal(0),
     }},
+    effect() {
+        return {
+            pointBoost: player.b.points.pow(0.25)
+        }
+    },
     color: "#00ff00",
     requires: new Decimal(2187), // Can be a function that takes requirement increases into account
     resource: "C", // Name of prestige currency
