@@ -6,7 +6,7 @@ addLayer("a", {
         unlocked: true,
 		points: new Decimal(0),
     }},
-    color: "#555555",
+    color: "#222222",
     requires: new Decimal(1), // Can be a function that takes requirement increases into account
     resource: "A", // Name of prestige currency
     baseResource: "Points", // Name of resource prestige is based on
@@ -25,13 +25,6 @@ addLayer("a", {
     },
     row: 0, // Row the layer is in on the tree (0 is the first row)
     layerShown(){return true},
-    milestones: {
-        0: {
-            requirementDescription: "100 A",
-            effectDescription: "Unlock another layer",
-            done() { return player.a.points.gte(100) }
-        }
-    },
     upgrades: {
         11: {
             description: "",
@@ -77,19 +70,7 @@ addLayer("b", {
         return new Decimal(1)
     },
     row: 1, // Row the layer is in on the tree (0 is the first row)
-    layerShown(){return (hasMilestone(a, 0)||hasMilestone(b, 0))},
-    milestones: {
-        0: {
-            requirementDescription: "1 B",
-            effectDescription: "Layer 2, Start!",
-            done() { return player.b.points.gte(1) }
-        },
-        1: {
-            requirementDescription: "2187 B",
-            effectDescription: "Unlock yet another layer",
-            done() { return player.b.points.gte(2187) }
-        }
-    },
+    layerShown(){return true},
     upgrades: {
         11: {
             description: "",
@@ -152,19 +133,7 @@ addLayer("c", {
         return new Decimal(1)
     },
     row: 2, // Row the layer is in on the tree (0 is the first row)
-    layerShown(){return (hasMilestone(b, 1)||hasMilestone(c, 0))},
-    milestones: {
-        0: {
-            requirementDescription: "1 C",
-            effectDescription: "Third time's the charm!",
-            done() { return player.c.points.gte(1) }
-        },
-        1: {
-            requirementDescription: "2187 B",
-            effectDescription: "You get the drill",
-            done() { return player.c.points.gte(2048) }
-        }
-    },
+    layerShown(){return true},
     upgrades: {
         11: {
             description: "",
