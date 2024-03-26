@@ -1,26 +1,25 @@
 let modInfo = {
-	name: "The Math Tree",
-	id: "mthtre",
+	name: "Distance Treecramental",
+	id: "dt",
 	author: "Wyatt",
-	pointsName: "Zeroes",
+	pointsName: "Meters",
 	modFiles: ["layers.js", "tree.js"],
 
 	discordName: "",
 	discordLink: "",
-	initialStartPoints: new Decimal (1), // Used for hard resets and new players
+	initialStartPoints: new Decimal (0), // Used for hard resets and new players
 	offlineLimit: 1,  // In hours
 }
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.0",
-	name: "Literally nothing",
+	num: "0.1",
+	name: "Ranks",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
 	<h3>v0.0</h3><br>
-		- Added things.<br>
-		- Added stuff.`
+		- Added Ranks.`
 
 let winText = `Congratulations! You have reached the end and beaten this game, but for now...`
 
@@ -42,9 +41,8 @@ function getPointGen() {
 	if(!canGenPoints())
 		return new Decimal(0)
 		
-	let gain = new Decimal(1)
-	if (hasUpgrade('1', 11)) gain = gain.times(2)
-	if (hasUpgrade('1', 21)) gain = gain.times(player.points.add(1).pow(0.25).times(2))
+	let gain = new Decimal(0.1)
+	gain = gain.mul(player.r.points.add(1).pow(2))
 	return gain
 }
 
