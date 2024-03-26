@@ -41,7 +41,7 @@ function getPointGen() {
 	if(!canGenPoints())
 		return new Decimal(0)
 		
-	let gain = new Decimal(0.1)
+	let gain = new Decimal(1)
 	gain = gain.mul(player.r.points.add(1).pow(2))
 	return gain
 }
