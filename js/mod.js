@@ -1,13 +1,13 @@
 let modInfo = {
 	name: "Distance Treecramental",
-	id: "dt",
+	id: "distre",
 	author: "Wyatt",
 	pointsName: "Meters",
 	modFiles: ["layers.js", "tree.js"],
 
 	discordName: "",
 	discordLink: "",
-	initialStartPoints: new Decimal (1), // Used for hard resets and new players
+	initialStartPoints: new Decimal (10), // Used for hard resets and new players
 	offlineLimit: 1,  // In hours
 }
 
