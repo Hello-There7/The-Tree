@@ -1,8 +1,8 @@
 let modInfo = {
-	name: "Distance Treecramental",
-	id: "distre",
+	name: "Existcramental",
+	id: "Tree",
 	author: "Wyatt",
-	pointsName: "Meters",
+	pointsName: "Existance",
 	modFiles: ["layers.js", "tree.js"],
 
 	discordName: "",
@@ -42,7 +42,6 @@ function getPointGen() {
 		return new Decimal(0)
 		
 	let gain = new Decimal(1)
-	gain = gain.mul(player.r.points.add(1).pow(2))
 	return gain
 }
 
