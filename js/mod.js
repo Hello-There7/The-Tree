@@ -2,7 +2,7 @@ let modInfo = {
 	name: "Existcramental",
 	id: "Tree",
 	author: "Wyatt",
-	pointsName: "Existance",
+	pointsName: "Color",
 	modFiles: ["layers.js", "tree.js"],
 
 	discordName: "",
@@ -14,12 +14,12 @@ let modInfo = {
 // Set your version in num and name
 let VERSION = {
 	num: "0.1",
-	name: "Ranks",
+	name: "Black and White",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
 	<h3>v0.0</h3><br>
-		- Added Ranks.`
+		- Added Black and White.`
 
 let winText = `Congratulations! You have reached the end and beaten this game, but for now...`
 
@@ -42,14 +42,8 @@ function getPointGen() {
 		return new Decimal(0)
 		
 	let gain = new Decimal(1)
-	if (hasUpgrade('p', 11)) gain = gain.times(2)
-	if (hasUpgrade('p', 12)) gain = gain.times(2)
-	if (hasUpgrade('p', 13)) gain = gain.times(2)
-	if (hasUpgrade('q', 11)) gain = gain.times(3)
-	if (hasUpgrade('q', 12)) gain = gain.times(3)
-	if (hasUpgrade('q', 13)) gain = gain.times(3)
-	if (hasUpgrade('q', 14)) gain = gain.times(3)
-	if (hasUpgrade('q', 32)) gain = gain.times(upgradeEffect('q', 32))
+	if (hasUpgrade('b', 12)) gain = gain.times(3)
+    if (hasUpgrade('w', 12)) gain = gain.times(3)
 	return gain
 }
 
@@ -63,7 +57,7 @@ var displayThings = [
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.c.points.gte(new Decimal("2048"))
+	return player.points.gte(new Decimal("2048"))
 }
 
 
