@@ -15,7 +15,7 @@ addLayer("b", {
     exponent: 1.5, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
-        if (hasUpgrade('b', 11)) gain = gain.times(2)
+        if (hasUpgrade('b', 11)) mult = mult.times(2)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -56,7 +56,7 @@ addLayer("w", {
     exponent: 1.5, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
-        if (hasUpgrade('w', 11)) gain = gain.times(2)
+        if (hasUpgrade('w', 11)) mult = mult.times(2)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -97,7 +97,7 @@ addLayer("r", {
     exponent: 1.5, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
-        if (hasUpgrade('r', 11)) gain = gain.times(2)
+        if (hasUpgrade('r', 11)) mult = mult.times(2)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
