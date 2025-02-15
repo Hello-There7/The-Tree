@@ -13,12 +13,14 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.1",
-	name: "The Start",
+	num: "0.1.1",
+	name: "Hello World",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
-	<h3>v0.1</h3><br>
+	<h3>v0.1.1</h3><br>
+		- Added 3 Point Upgrades.`
+	`<h3>v0.1</h3><br>
 		- Added Points.`
 
 let winText = `Not much left, but..`
