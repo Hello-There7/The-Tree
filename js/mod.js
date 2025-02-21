@@ -13,15 +13,20 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "1.0",
-	name: "Altar",
+	num: "1.0.1",
+	name: "Alter Again",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
 	<h3>v1.0</h3><br>
+		- Fixed Antimatter upgrades.
+		<br>
+	<h3>v1.0</h3><br>
 		- First release, added 3 Antimatter upgrades.
+		<br>
 	<h3>v0.1.1</h3><br>
 		- Edited Antimatter, and added an upgrade.
+		<br>
 	<h3>v0.1</h3><br>
 		- Added Antimatter.`
 

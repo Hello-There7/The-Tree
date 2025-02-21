@@ -38,14 +38,14 @@ addLayer("a", {
         },
         13: {
             title: "Act",
-            description: "Multiply Antimatter by 2.5",
+            description: "Multiply Antimatter by 1.5",
             cost: new Decimal(4),
             unlocked() { return (hasUpgrade(this.layer, 12))},
         },
         14: {
             title: "Ant",
             description: "Antimatter boosts Points",
-            cost: new Decimal(4),
+            cost: new Decimal(6),
             unlocked() { return (hasUpgrade(this.layer, 13))},
             effect() {
                 return player[this.layer].points.add(1).pow(0.5)
@@ -55,7 +55,7 @@ addLayer("a", {
         15: {
             title: "Art",
             description: "Points boost Antimatter",
-            cost: new Decimal(4),
+            cost: new Decimal(10),
             unlocked() { return (hasUpgrade(this.layer, 14))},
             effect() {
                 return player.points.add(1).pow(0.2)
