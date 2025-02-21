@@ -1,29 +1,27 @@
 let modInfo = {
-	name: "Existcramental",
-	id: "Treee",
+	name: "Prestige Line",
+	id: "Prestige Chain Ripoff",
 	author: "Wyatt",
-	pointsName: "Time Since Prestige",
+	pointsName: "Points",
 	modFiles: ["layers.js", "tree.js"],
 
 	discordName: "",
 	discordLink: "",
-	initialStartPoints: new Decimal (0), // Used for hard resets and new players
+	initialStartPoints: new Decimal (11), // Used for hard resets and new players
 	offlineLimit: 1,  // In hours
 }
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.1.1",
-	name: "Hello World",
+	num: "0.1",
+	name: "A is for Prestige",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
-	<h3>v0.1.1</h3><br>
-		- Added 3 Point Upgrades.`
-	`<h3>v0.1</h3><br>
-		- Added Points.`
+	<h3>v0.1</h3><br>
+		- Added Antimatter.`
 
-let winText = `Not much left, but..`
+let winText = `Good Job!`
 
 // If you add new functions anywhere inside of a layer, and those functions have an effect when called, add them here.
 // (The ones here are examples, all official functions are already taken care of)
@@ -42,9 +40,9 @@ function canGenPoints(){
 function getPointGen() {
 	if(!canGenPoints())
 		return new Decimal(0)
-		
-	let gain = new Decimal(1)
 	
+	let gain = new Decimal(0)
+	if (hasUpgrade('a', 11)) gain = gain.add(1)
 	return gain
 }
 
@@ -58,7 +56,7 @@ var displayThings = [
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.p.points.gte(new Decimal("100"))
+	return player.a.points.gte(new Decimal("100"))
 }
 
 
