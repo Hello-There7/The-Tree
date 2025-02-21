@@ -13,11 +13,13 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.1.1",
-	name: "Alter",
+	num: "1.0",
+	name: "Altar",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
+	<h3>v1.0</h3><br>
+		- First release, added 3 Antimatter upgrades.
 	<h3>v0.1.1</h3><br>
 		- Edited Antimatter, and added an upgrade.
 	<h3>v0.1</h3><br>
@@ -46,6 +48,7 @@ function getPointGen() {
 	let gain = new Decimal(0)
 	if (hasUpgrade('a', 11)) gain = gain.add(1)
     if (hasUpgrade('a', 12)) gain = gain.times(2.5)
+    if (hasUpgrade('a', 14)) gain = gain.times(upgradeEffect('a', 14))
 	return gain
 }
 
