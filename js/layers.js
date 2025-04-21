@@ -72,7 +72,7 @@ addLayer("a", {
     buyables: {
          11: {
             title: "A",
-            cost(x) { return new Decimal(10).times(new Decimal(2).pow(x)) },
+            cost(h) { return new Decimal(10).times(h).add(10) },
             display() { return `You have ${ a.buyables[11] } of this buyable, which multiplies point gain by ${a.buyables[11].add(1)}` },
             canAfford() { return player[this.layer].points.gte(this.cost()) },
             buy() {
