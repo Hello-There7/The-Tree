@@ -54,6 +54,7 @@ function getPointGen() {
 	if (hasUpgrade('a', 11)) gain = gain.add(1)
     if (hasUpgrade('a', 12)) gain = gain.times(2.5)
     if (hasUpgrade('a', 14)) gain = gain.times(upgradeEffect('a', 14))
+	gain = getBuyableAmount('a', 11).add(1).mult(gain)
 	return gain
 }
 
