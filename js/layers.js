@@ -62,6 +62,24 @@ addLayer("a", {
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         },
+        21: {
+            title: "Anti",
+            description: "Unlocks the first buyable",
+            cost: new Decimal(10),
+            unlocked() { return (hasUpgrade(this.layer, 11) & hasUpgrade(this.layer, 12))},
         },
+        },
+    buyables: {
+         11: {
+            title: "A",
+            cost(x) { return new Decimal(10).pow(x.mul(0.2)) },
+            display() { return "I don't know what to put here" },
+            canAfford() { return player[this.layer].points.gte(this.cost()) },
+            buy() {
+                player[this.layer].points = player[this.layer].points.sub(this.cost())
+                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+            },
+         },
+    }
     },
 )
