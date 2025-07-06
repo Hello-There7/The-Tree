@@ -1,8 +1,8 @@
 let modInfo = {
-	name: "Prestige Line",
-	id: "Prestige Chain Ripoff",
+	name: "Universe Tree",
+	id: "Build the Universe",
 	author: "Wyatt",
-	pointsName: "Points",
+	pointsName: "Infinitessimals",
 	modFiles: ["layers.js", "tree.js"],
 
 	discordName: "",
@@ -13,22 +13,11 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "1.0.1",
-	name: "Alter Again",
+	num: "1.0",
+	name: "Quantum Quake",
 }
 
-let changelog = `<h1>Changelog:</h1><br>
-	<h3>v1.0</h3><br>
-		- Fixed Antimatter upgrades.
-		<br>
-	<h3>v1.0</h3><br>
-		- First release, added 3 Antimatter upgrades.
-		<br>
-	<h3>v0.1.1</h3><br>
-		- Edited Antimatter, and added an upgrade.
-		<br>
-	<h3>v0.1</h3><br>
-		- Added Antimatter.`
+let changelog = `I broke it`
 
 let winText = `Good Job!`
 
@@ -50,10 +39,19 @@ function getPointGen() {
 	if(!canGenPoints())
 		return new Decimal(0)
 	
-	let gain = new Decimal(0)
-	if (hasUpgrade('a', 11)) gain = gain.add(1)
-    if (hasUpgrade('a', 12)) gain = gain.times(2.5)
-    if (hasUpgrade('a', 14)) gain = gain.times(upgradeEffect('a', 14))
+	let gain = new Decimal(1)
+	if (hasUpgrade('QF', 11)) gain = gain.mult(2)
+	if (hasUpgrade('QF', 12)) gain = gain.mult(2)
+	if (hasUpgrade('QF', 13)) gain = gain.mult(2)
+	if (hasUpgrade('QF', 14)) gain = gain.mult(2)
+    if (hasUpgrade('QF', 15)) gain = gain.mult(2)
+	if (hasUpgrade('QF', 21)) gain = gain.mult(3)
+	if (hasUpgrade('QF', 22)) gain = gain.mult(3)
+	if (hasUpgrade('QF', 23)) gain = gain.mult(3)
+	if (hasUpgrade('QF', 24)) gain = gain.mult(3)
+	if (hasUpgrade('QF', 31)) gain = gain.mult(4)
+	if (hasUpgrade('QF', 32)) gain = gain.mult(4)
+	if (hasUpgrade('QF', 33)) gain = gain.mult(4)
 	gain = gain.times(a.buyables[11].add(1))
 	return gain
 }
@@ -68,7 +66,7 @@ var displayThings = [
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.a.points.gte(new Decimal("100"))
+	return player.points.gte(new Decimal("100"))
 }
 
 
