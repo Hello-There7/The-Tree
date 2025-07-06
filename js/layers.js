@@ -95,7 +95,7 @@ addLayer("QF", {
             description: "Double Quantum Foam Production",
             cost: new Decimal(200001),
         },
-        42: {
+        51: {
             title: "Omicron",
             description: "Unlock New Layer (Next Update)",
             cost: new Decimal(444444),
