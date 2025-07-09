@@ -103,7 +103,7 @@ addLayer("QF", {
         },
         51: {
             title: "Omicron",
-            description: "Unlock New Layer (Next Update)",
+            description: "Unlock 2 New Layers",
             cost: new Decimal(444444),
         },
         },
