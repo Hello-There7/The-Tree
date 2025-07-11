@@ -12,7 +12,7 @@ addLayer("QF", {
     baseResource: "Infinitessimals", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
-    exponent: 1.01, // Prestige currency exponent
+    exponent: 2, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
         if (hasUpgrade('QF', 41)) mult = mult.times(2)
@@ -40,71 +40,113 @@ addLayer("QF", {
             title: "Beta",
             description: "Double Infinitessimal Production",
             cost: new Decimal(5),
+            unlocked() {
+                return hasUpgrade('QF', 11)
+            }
         },
         13: {
             title: "Gamma",
             description: "Double Infinitessimal Production",
             cost: new Decimal(11),
+            unlocked() {
+                return hasUpgrade('QF', 12)
+            }
         },
         14: {
             title: "Delta",
             description: "Double Infinitessimal Production",
             cost: new Decimal(21),
+            unlocked() {
+                return hasUpgrade('QF', 13)
+            }
         },
         15: {
             title: "Epsilon",
             description: "Double Infinitessimal Production",
             cost: new Decimal(43),
+            unlocked() {
+                return hasUpgrade('QF', 14)
+            }
         },
         21: {
             title: "Zeta",
             description: "Triple Infinitessimal Production",
             cost: new Decimal(30),
+            unlocked() {
+                return hasUpgrade('QF', 11)
+            }
         },
         22: {
             title: "Eta",
             description: "Triple Infinitessimal Production",
             cost: new Decimal(91),
+            unlocked() {
+                return hasUpgrade('QF', 12)
+            }
         },
         23: {
             title: "Theta",
             description: "Triple Infinitessimal Production",
             cost: new Decimal(274),
+            unlocked() {
+                return hasUpgrade('QF', 13)
+            }
         },
         24: {
             title: "Iota",
             description: "Triple Infinitessimal Production",
             cost: new Decimal(823),
+            unlocked() {
+                return hasUpgrade('QF', 14)
+            }
         },
         31: {
             title: "Kappa",
             description: "Quadruple Infinitessimal Production",
             cost: new Decimal(4000),
+            unlocked() {
+                return hasUpgrade('QF', 21)
+            }
         },
         32: {
             title: "Lambda",
             description: "Quadruple Infinitessimal Production",
             cost: new Decimal(16001),
+            unlocked() {
+                return hasUpgrade('QF', 22)
+            }
         },
         33: {
             title: "Mu",
             description: "Quadruple Infinitessimal Production",
             cost: new Decimal(64005),
+            unlocked() {
+                return hasUpgrade('QF', 23)
+            }
         },
         41: {
             title: "Nu",
             description: "Double Quantum Foam Production",
             cost: new Decimal(100000),
+            unlocked() {
+                return hasUpgrade('QF', 31)
+            }
         },
         42: {
             title: "Xi",
             description: "Double Quantum Foam Production",
             cost: new Decimal(200001),
+            unlocked() {
+                return hasUpgrade('QF', 32)
+            }
         },
         51: {
             title: "Omicron",
             description: "Unlock 2 New Layers",
             cost: new Decimal(444444),
+            unlocked() {
+                return hasUpgrade('QF', 41)
+            }
         },
         },
     },
@@ -123,7 +165,7 @@ addLayer("UQ", {
     baseResource: "Quantum Foam", // Name of resource prestige is based on
     baseAmount() {return player.QF.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
-    exponent: 1.23, // Prestige currency exponent
+    exponent: 3, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
         if (hasUpgrade('UQ', 31)) mult = mult.times(upgradeEffect('UQ', 31))
@@ -235,7 +277,7 @@ addLayer("DQ", {
     baseResource: "Quantum Foam", // Name of resource prestige is based on
     baseAmount() {return player.QF.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
-    exponent: 1.23, // Prestige currency exponent
+    exponent: 3, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
         if (hasUpgrade('DQ', 31)) mult = mult.times(upgradeEffect('DQ', 31))
