@@ -12,7 +12,7 @@ addLayer("QF", {
     baseResource: "Infinitessimals", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
-    exponent: 2, // Prestige currency exponent
+    exponent: 0.5, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
         if (hasUpgrade('QF', 41)) mult = mult.times(2)
@@ -165,7 +165,7 @@ addLayer("UQ", {
     baseResource: "Quantum Foam", // Name of resource prestige is based on
     baseAmount() {return player.QF.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
-    exponent: 3, // Prestige currency exponent
+    exponent: 0.3, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
         if (hasUpgrade('UQ', 31)) mult = mult.times(upgradeEffect('UQ', 31))
