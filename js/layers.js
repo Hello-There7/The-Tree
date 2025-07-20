@@ -171,6 +171,7 @@ addLayer("UQ", {
         if (hasUpgrade('UQ', 31)) mult = mult.times(upgradeEffect('UQ', 31))
 	    if (hasUpgrade('UQ', 32)) mult = mult.times(upgradeEffect('UQ', 32))
 	    if (hasUpgrade('UQ', 33)) mult = mult.times(upgradeEffect('UQ', 33))
+        if (hasMilestone('DQ', 0)) mult = mult.times(2)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -261,6 +262,13 @@ addLayer("UQ", {
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         },
         },
+    milestones: {
+        0: {
+            requirementDescription: "200 Up Quarks",
+            effectDescription: "Unlock Down Quark related upgrades ( Next Update :( ) and Double DQ gain",
+            done() { return player.UQ.points.gte(200) }
+            }
+        }
     },
 )
 addLayer("DQ", {
@@ -280,9 +288,10 @@ addLayer("DQ", {
     exponent: 3, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
-        if (hasUpgrade('DQ', 31)) mult = mult.times(upgradeEffect('DQ', 31))
-	    if (hasUpgrade('DQ', 32)) mult = mult.times(upgradeEffect('DQ', 32))
-	    if (hasUpgrade('DQ', 33)) mult = mult.times(upgradeEffect('DQ', 33))
+        if (hasUpgrade('DQ', 41)) mult = mult.times(upgradeEffect('DQ', 41))
+	    if (hasUpgrade('DQ', 42)) mult = mult.times(upgradeEffect('DQ', 42))
+	    if (hasUpgrade('DQ', 44)) mult = mult.times(upgradeEffect('DQ', 44))
+        if (hasMilestone('UQ', 0)) mult = mult.times(2)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -309,7 +318,7 @@ addLayer("DQ", {
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         },
-        13: {
+        14: {
             title: "Down to Infinitessimal",
             description: "Down Quarks boost Infinitessimals",
             cost: new Decimal(25),
@@ -336,7 +345,7 @@ addLayer("DQ", {
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         },
-        23: {
+        24: {
             title: "Down to Quantum",
             description: "Down Quarks boost Quantum Foam",
             cost: new Decimal(50),
@@ -345,7 +354,7 @@ addLayer("DQ", {
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         },
-        31: {
+        41: {
             title: "Infinitessimal to Down",
             description: "Infinitessimals boost Down Quarks",
             cost: new Decimal(25),
@@ -354,7 +363,7 @@ addLayer("DQ", {
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         },
-        32: {
+        42: {
             title: "Quantum to Down",
             description: "Quantum Foam boosts Down Quarks",
             cost: new Decimal(50),
@@ -363,7 +372,7 @@ addLayer("DQ", {
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         },
-        33: {
+        44: {
             title: "Down to Down",
             description: "Down Quarks boost Down Quarks",
             cost: new Decimal(100),
@@ -373,5 +382,12 @@ addLayer("DQ", {
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         },
         },
+    milestones: {
+        0: {
+            requirementDescription: "200 Down Quarks",
+            effectDescription: "Unlock Up Quark related upgrades ( Next Update :( ) and Double UQ gain",
+            done() { return player.UQ.points.gte(200) }
+            }
+        }
     },
 )
