@@ -39,25 +39,7 @@ function getPointGen() {
 	if(!canGenPoints())
 		return new Decimal(0)
 	
-	let gain = new Decimal(1)
-	if (hasUpgrade('QF', 11)) gain = gain.times(2)
-	if (hasUpgrade('QF', 12)) gain = gain.times(2)
-	if (hasUpgrade('QF', 13)) gain = gain.times(2)
-	if (hasUpgrade('QF', 14)) gain = gain.times(2)
-	if (hasUpgrade('QF', 15)) gain = gain.times(2)
-	if (hasUpgrade('QF', 21)) gain = gain.times(3)
-	if (hasUpgrade('QF', 22)) gain = gain.times(3)
-	if (hasUpgrade('QF', 23)) gain = gain.times(3)
-	if (hasUpgrade('QF', 24)) gain = gain.times(3)
-	if (hasUpgrade('QF', 31)) gain = gain.times(4)
-	if (hasUpgrade('QF', 32)) gain = gain.times(4)
-	if (hasUpgrade('QF', 33)) gain = gain.times(4)
-    if (hasUpgrade('UQ', 11)) gain = gain.times(upgradeEffect('UQ', 11))
-	if (hasUpgrade('UQ', 12)) gain = gain.times(upgradeEffect('UQ', 12))
-	if (hasUpgrade('UQ', 13)) gain = gain.times(upgradeEffect('UQ', 13))
-	if (hasUpgrade('DQ', 11)) gain = gain.times(upgradeEffect('DQ', 11))
-	if (hasUpgrade('DQ', 12)) gain = gain.times(upgradeEffect('DQ', 12))
-	if (hasUpgrade('DQ', 13)) gain = gain.times(upgradeEffect('DQ', 13))
+	let gain = new Decimal(0)
 	return gain
 }
 
