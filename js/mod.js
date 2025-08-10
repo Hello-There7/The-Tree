@@ -1,5 +1,5 @@
 let modInfo = {
-	name: "olor Tree",
+	name: "Color Tree",
 	id: "Color Conquest",
 	author: "Wyatt",
 	pointsName: "Chroma",
@@ -14,7 +14,7 @@ let modInfo = {
 // Set your version in num and name
 let VERSION = {
 	num: "1.0",
-	name: "Quantum Quake",
+	name: "Back In Black",
 }
 
 let changelog = `I broke it`
@@ -55,7 +55,7 @@ var displayThings = [
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.BK.points.gte(new Decimal("1000"))
+	return player.BK.points.gte(new Decimal("10"))
 }
 
 
