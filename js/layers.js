@@ -7,7 +7,7 @@ addLayer("BK", {
         unlocked: true,
 		points: new Decimal(0),
     }},
-    color: "#000000",
+    color: "#363636ff",
     requires: new Decimal(25), // Can be a function that takes requirement increases into account
     resource: "Black Pigment", // Name of prestige currency
     baseResource: "Chroma", // Name of resource prestige is based on
