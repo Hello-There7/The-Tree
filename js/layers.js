@@ -4,7 +4,7 @@ addLayer("BK", {
     symbol: "BK", // This appears on the layer's node. Default is the id with the first letter capitalized
     startData() { return {
         best: new Decimal(0),
-        unlocked: player.points.gte(10) || player.BK.points.gte(1),
+        unlocked: true,
 		points: new Decimal(0),
     }},
     color: "#000000",
