@@ -1,20 +1,23 @@
-addLayer("BK ", {
-    name: "Choice", // This is optional, only used in a few places, If absent it just uses the layer id.
+addLayer("BK", {
+    name: "Black", // This is optional, only used in a few places, If absent it just uses the layer id.
     position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
-    symbol: "⌗", // This appears on the layer's node. Default is the id with the first letter capitalized
+    symbol: "BK", // This appears on the layer's node. Default is the id with the first letter capitalized
     startData() { return {
-        unlocked: true,
-		points: new Decimal(1),
+        best: new Decimal(0),
+        unlocked: player.points.gte(10) || player.BK.best.gte(1),
+		points: new Decimal(0),
     }},
-    color: "#555588",
+    color: "#000000",
     requires: new Decimal(25), // Can be a function that takes requirement increases into account
-    resource: "Quantum Foam", // Name of prestige currency
-    baseResource: "Infinitessimals", // Name of resource prestige is based on
+    resource: "Black Pigment", // Name of prestige currency
+    baseResource: "Chroma", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 0.75, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
-        mult = new Decimal(0)
+        mult = new Decimal(1)
+        if (hasUpgrade('BK', 11)) mult = mult.times(0.5)
+        if (hasUpgrade('BK', 12)) mult = mult.times(3)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -24,14 +27,14 @@ addLayer("BK ", {
     layerShown(){return true},
     upgrades: {
         11: {
-            title: "Choice 1",
-            description: "Powers of Two",
-            cost: new Decimal(1),
+            title: "UV Radiation",
+            description: "Triple Point Gain, But Half Black Pigment Gain",
+            cost: new Decimal(2),
         },
         12: {
-            title: "Choice 2",
-            description: "Powers of Primes",
-            cost: new Decimal(1),
+            title: "UV Absorbtion",
+            description: "Triple Black Pigment Gain, But Half Point Gain",
+            cost: new Decimal(4),
         },
     },
     },

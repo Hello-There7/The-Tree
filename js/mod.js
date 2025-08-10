@@ -1,8 +1,8 @@
 let modInfo = {
-	name: "Universe Tree",
-	id: "Build the Universe",
+	name: "olor Tree",
+	id: "Color Conquest",
 	author: "Wyatt",
-	pointsName: "Infinitessimals",
+	pointsName: "Chroma",
 	modFiles: ["layers.js", "tree.js"],
 
 	discordName: "",
@@ -39,7 +39,9 @@ function getPointGen() {
 	if(!canGenPoints())
 		return new Decimal(0)
 	
-	let gain = new Decimal(0)
+	let gain = new Decimal(1)
+	if (hasUpgrade('BK', 11)) gain = gain.times(3)
+    if (hasUpgrade('BK', 12)) gain = gain.times(0.5)
 	return gain
 }
 
@@ -53,7 +55,7 @@ var displayThings = [
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.QF.points.gte(new Decimal("1000000"))
+	return player.BK.points.gte(new Decimal("1000"))
 }
 
 
