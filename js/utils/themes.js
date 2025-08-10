@@ -25,7 +25,7 @@ var colors = {
 }
 function changeTheme() {
 
-	colors_theme = colors[options.theme || "default"];
+	colors_theme = colors[options.theme || "dark"];
 	document.body.style.setProperty('--background', colors_theme["background"]);
 	document.body.style.setProperty('--background_tooltip', colors_theme["background_tooltip"]);
 	document.body.style.setProperty('--color', colors_theme["color"]);
@@ -33,7 +33,7 @@ function changeTheme() {
 	document.body.style.setProperty("--locked", colors_theme["locked"]);
 }
 function getThemeName() {
-	return options.theme? options.theme : "default";
+	return options.theme? options.theme : "dark";
 }
 
 function switchTheme() {
