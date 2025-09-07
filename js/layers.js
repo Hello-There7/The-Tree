@@ -18,6 +18,10 @@ addLayer("BK", {
         mult = new Decimal(1)
         if (hasUpgrade('BK', 11)) mult = mult.times(0.5)
         if (hasUpgrade('BK', 12)) mult = mult.times(3)
+        if (hasUpgrade('BK', 13)) mult = mult.times(0.5)
+        if (hasUpgrade('BK', 14)) mult = mult.times(5)
+        if (hasUpgrade('BK', 15)) mult = mult.times(0.5)
+        if (hasUpgrade('BK', 16)) mult = mult.times(upgradeEffect('BK', 16))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -25,7 +29,7 @@ addLayer("BK", {
     },
     row: 0, // Row the layer is in on the tree (0 is the first row)
     layerShown(){return true},
-    upgrades: {
+    upgrades: {   
         11: {
             title: "UV Radiation",
             description: "Triple Point Gain, But Half Black Pigment Gain",
@@ -35,6 +39,34 @@ addLayer("BK", {
             title: "UV Absorbtion",
             description: "Triple Black Pigment Gain, But Half Point Gain",
             cost: new Decimal(4),
+        },
+        13: {
+            title: "IR Radiation",
+            description: "Quintuple Point Gain, But Half Black Pigment Gain",
+            cost: new Decimal(6),
+        },
+        14: {
+            title: "IR Absorbtion",
+            description: "Quintuple Black Pigment Gain, But Half Point Gain",
+            cost: new Decimal(8),
+        },
+        15: {
+            title: "Dynamic Radiation",
+            description: "Boost Point Gain, But Half Black Pigment Gain",
+            cost: new Decimal(10),
+            effect() {
+                return player.points.add(1).pow(0.3)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+        },
+        16: {
+            title: "Dynamic Absorbtion",
+            description: "Boost Black Pigment Gain, But Half Point Gain",
+            cost: new Decimal(12),
+            effect() {
+                return player.points.add(1).pow(0.2)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
         },
     },
     },
