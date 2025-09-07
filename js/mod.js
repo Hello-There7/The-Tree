@@ -59,7 +59,7 @@ var displayThings = [
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.BK.points.gte(new Decimal("10"))
+	return player.BK.points.gte(new Decimal("50"))
 }
 
 
