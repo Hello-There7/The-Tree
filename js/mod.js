@@ -46,6 +46,8 @@ function getPointGen() {
         if (hasUpgrade('BK', 14)) gain = gain.times(0.5)
 		if (hasUpgrade('BK', 15)) gain = gain.times(upgradeEffect('BK', 15))
         if (hasUpgrade('BK', 16)) gain = gain.times(0.5)
+		if (hasUpgrade('BK', 21)) gain = gain.add(10)
+		if (hasUpgrade('BK', 15)) gain = gain.times(upgradeEffect('BK', 25))
 	return gain
 }
 
@@ -59,7 +61,7 @@ var displayThings = [
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.BK.points.gte(new Decimal("50"))
+	return player.BK.points.gte(new Decimal("1000"))
 }
 
 

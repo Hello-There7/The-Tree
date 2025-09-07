@@ -22,6 +22,7 @@ addLayer("BK", {
         if (hasUpgrade('BK', 14)) mult = mult.times(5)
         if (hasUpgrade('BK', 15)) mult = mult.times(0.5)
         if (hasUpgrade('BK', 16)) mult = mult.times(upgradeEffect('BK', 16))
+        if (hasUpgrade('BK', 23)) mult = mult.times(2)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -29,6 +30,28 @@ addLayer("BK", {
     },
     row: 0, // Row the layer is in on the tree (0 is the first row)
     layerShown(){return true},
+    milestones: {
+    0: {
+        requirementDescription: "50 Black Pigment",
+        effectDescription: "Unlock a new row of upgrades",
+        done() { return player.BK.best.gte(50) }
+    },
+    },
+    buyables: {
+        11: {
+            title: "Hawking Radiation",
+            cost(x) { return new Decimal(10).pow(x) },
+            display() { return "Doubles Point Gain" },
+            canAfford() { return player[this.layer].points.gte(this.cost()) },
+            buy() {
+                player[this.layer].points = player[this.layer].points.sub(this.cost())
+                setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
+            },
+            unlocked() {
+                return hasUpgrade('BK', 22)
+            }
+        },
+},
     upgrades: {   
         11: {
             title: "UV Radiation",
@@ -67,6 +90,58 @@ addLayer("BK", {
                 return player.points.add(1).pow(0.2)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+        },
+        21: {
+            title: "No Downsides Here!",
+            description: "Add 10 To Point Gain",
+            cost: new Decimal(60),
+            unlocked() {
+                return hasMilestone('BK', 0)
+            }
+        },
+        22: {
+            title: "Black Hole",
+            description: "Unlock A Buyable",
+            cost: new Decimal(80),
+            unlocked() {
+                return hasMilestone('BK', 0)
+            }
+        },
+        23: {
+            title: "Vanta",
+            description: "Double Black Pigment Gain",
+            cost: new Decimal(100),
+            unlocked() {
+                return hasMilestone('BK', 0)
+            }
+        },
+        24: {
+            title: "A Purpouse",
+            description: "Unlock Acheivements (Next Update)",
+            cost: new Decimal(240),
+            unlocked() {
+                return hasMilestone('BK', 0)
+            }
+        },
+        25: {
+            title: "Dynamic Radiation II",
+            description: "Boost Point Gain Better",
+            cost: new Decimal(480),
+            effect() {
+                return player.points.add(1).pow(0.5)
+            },
+            effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" },
+            unlocked() {
+                return hasMilestone('BK', 0)
+            }
+        },
+        26: {
+            title: "000000",
+            description: "Unlock BW Hexcodes (Next Update)",
+            cost: new Decimal(10000),
+            unlocked() {
+                return hasMilestone('BK', 0)
+            }
         },
     },
     },
